@@ -58,7 +58,7 @@ Password
 
 Confirm Password
 
-Note: VMware uses this password to create both the normal user and configure the root account during installation (as noted in your lab). You can change it later if required.
+Note: VMware uses this password to create both the normal user and configure the root account during installation. You can change it later if required.
 
 Click -> Next
 
@@ -77,9 +77,10 @@ Click -> Next
 Select -> 30 GB
 
 Store virtual disk as a single file
+
 Why?
 
-Storing the virtual disk as a single file generally provides slightly better performance and is easier to manage than splitting it into multiple files. For a lab environment, this is the recommended option.
+Storing the virtual disk as a single file generally provides slightly better performance and is easier to manage than splitting it into multiple files.
 
 Click -> Next
 
