@@ -3,22 +3,22 @@
 In this lab, we will create a **Red Hat Enterprise Linux** virtual machine named **Node1**, **Node2** and **Node3**.
 
 ---
-
-                          VMware Workstation Pro
-                                   │
-      -----------------------------------------------------------------
-      │                           │                           │
-+-------------------------+ +-------------------------+ +-------------------------+
-|         Node1           | |         Node2           | |         Node3           |
-|-------------------------| |-------------------------| |-------------------------|
-| Installed from ISO      | | Full Clone of Node1     | | Full Clone of Node1     |
-| RHEL 9.8 (Plow)         | | RHEL 9.8 (Plow)         | | RHEL 9.8 (Plow)         |
-| 2 vCPU                  | | 2 vCPU                  | | 2 vCPU                  |
-| 2 GB RAM                | | 2 GB RAM                | | 2 GB RAM                |
-| 30 GB Disk              | | 30 GB Disk              | | 30 GB Disk              |
-| NAT Adapter             | | NAT Adapter             | | NAT Adapter             |
-| Host-Only Adapter       | | Host-Only Adapter       | | Host-Only Adapter       |
-+-------------------------+ +-------------------------+ +-------------------------+
+```text
+                    VMware Workstation Pro
+                             │
+        ┌────────────────────┴────────────────────┐
+        │                    │                    │
+     ┌───────┐           ┌───────┐           ┌───────┐
+     │ Node1 │           │ Node2 │           │ Node3 │
+     ├───────┤           ├───────┤           ├───────┤
+     │RHEL9.8│           │RHEL9.8│           │RHEL9.8│
+     │2 vCPU │           │2 vCPU │           │2 vCPU │
+     │2 GB   │           │2 GB   │           │2 GB   │
+     │30 GB  │           │30 GB  │           │30 GB  │
+     │NAT    │           │NAT    │           │NAT    │
+     │HostOnly│          │HostOnly│          │HostOnly│
+     └───────┘           └───────┘           └───────┘
+```
 ---
 **Step 1** : Open VMware Workstation Pro
 
