@@ -88,3 +88,65 @@ Click -> Next
 Review the configuration.
 
 Click -> Finish
+
+# Cloning a Virtual Machine
+
+After successfully installing Red Hat Enterprise Linux 9.8 on Node1, the next step is to create Node2 and Node3 by cloning Node1.
+
+Virtual machine cloning creates an exact copy of an existing virtual machine, including its operating system, installed packages, virtual hardware configuration, and disk contents.
+Instead of performing the operating system installation multiple times, cloning allows additional cluster nodes to be created quickly and consistently.
+
+## Why Use Cloning?
+1.Saves time by eliminating the need to install RHEL on each node individually.
+2.Ensures all cluster nodes have identical operating system versions and package sets.
+3.Maintains consistent virtual hardware configurations (CPU, memory, disk, and network adapters).
+4.Reduces the risk of configuration differences between cluster nodes.
+5.Simplifies the deployment of multi-node cluster environments.
+
+##In VMware Workstation Pro:
+
+Right-click Node1.
+
+Select Manage → Clone.
+
+Click -> Next.
+
+**Step 1**: Select Clone Source
+
+Choose:
+
+The current state in the virtual machine
+
+Click -> Next.
+
+**Step 2**: Select Clone Type
+
+Choose:
+
+Full Clone
+Why Full Clone?
+
+A Full Clone creates a completely independent virtual machine with its own virtual disk.
+
+Advantages:
+
+Independent virtual disks
+Better performance
+No dependency on Node1
+Recommended for cluster environments
+
+Click -> Next.
+
+**Step 3**: Name the Virtual Machine
+
+Enter: Node2
+
+Choose the storage location.
+
+C:\VMs\Node2
+
+Click Finish.
+
+Wait until VMware completes the cloning process.
+
+##Follow same process for **Node3** cloning.
