@@ -33,6 +33,7 @@ Why?
 VMware provides two installation methods.
 
 Typical
+
 Custom
 
 For our Red Hat Cluster lab, Typical is sufficient because VMware automatically configures the recommended virtual hardware.
@@ -123,6 +124,7 @@ Click -> Next.
 Choose:
 
 Full Clone
+
 Why Full Clone?
 
 A Full Clone creates a completely independent virtual machine with its own virtual disk.
