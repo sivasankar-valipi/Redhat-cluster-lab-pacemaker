@@ -130,13 +130,6 @@ Why Full Clone?
 
 A Full Clone creates a completely independent virtual machine with its own virtual disk.
 
-Advantages:
-
-Independent virtual disks
-Better performance
-No dependency on Node1
-Recommended for cluster environments
-
 Click -> Next.
 
 **Step 4**: Name the Virtual Machine
