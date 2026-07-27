@@ -1,17 +1,18 @@
 # Creating Node1, Node2 and Node3 Virtual Machines
 
-In this lab, we will create a **Red Hat Enterprise Linux ** virtual machine named **Node1**, **Node2** and **Node3**.
+In this lab, we will create a **Red Hat Enterprise Linux** virtual machine named **Node1**, **Node2** and **Node3**.
 
 ---
 
-                         VMware Workstation Pro
+                          VMware Workstation Pro
                                    │
       -----------------------------------------------------------------
-      │                               │                           │
+      │                           │                           │
 +-------------------------+ +-------------------------+ +-------------------------+
 |         Node1           | |         Node2           | |         Node3           |
 |-------------------------| |-------------------------| |-------------------------|
-| RHEL 9.8                | | RHEL 9.8                | | RHEL 9.8                |
+| Installed from ISO      | | Full Clone of Node1     | | Full Clone of Node1     |
+| RHEL 9.8 (Plow)         | | RHEL 9.8 (Plow)         | | RHEL 9.8 (Plow)         |
 | 2 vCPU                  | | 2 vCPU                  | | 2 vCPU                  |
 | 2 GB RAM                | | 2 GB RAM                | | 2 GB RAM                |
 | 30 GB Disk              | | 30 GB Disk              | | 30 GB Disk              |
@@ -72,9 +73,7 @@ Click -> Next
 
 **Step 6** : Specify Disk Capacity
 
-30 GB
-
-Select
+Select -> 30 GB
 
 Store virtual disk as a single file
 Why?
@@ -105,13 +104,13 @@ Instead of performing the operating system installation multiple times, cloning 
 
 ##In VMware Workstation Pro:
 
-Right-click Node1.
+**Step 1**: Right-click **Node1**.
 
 Select Manage → Clone.
 
 Click -> Next.
 
-**Step 1**: Select Clone Source
+**Step 2**: Select Clone Source
 
 Choose:
 
@@ -119,7 +118,7 @@ The current state in the virtual machine
 
 Click -> Next.
 
-**Step 2**: Select Clone Type
+**Step 3**: Select Clone Type
 
 Choose:
 
@@ -137,9 +136,9 @@ Recommended for cluster environments
 
 Click -> Next.
 
-**Step 3**: Name the Virtual Machine
+**Step 4**: Name the Virtual Machine
 
-Enter: Node2
+Enter: **Node2**
 
 Choose the storage location.
 
@@ -149,4 +148,4 @@ Click Finish.
 
 Wait until VMware completes the cloning process.
 
-##Follow same process for **Node3** cloning.
+## Follow same process for **Node3** cloning.
