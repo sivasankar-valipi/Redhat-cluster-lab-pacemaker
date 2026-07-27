@@ -90,7 +90,7 @@ If server fails/down, application will be unavailable.
 - Pacemaker
 - Corosync
 - PCS (Pacemaker Configuration System)
-- Shared Storage (optional)
+- Shared Storage
 - Virtual IP (VIP)
 
 ---
