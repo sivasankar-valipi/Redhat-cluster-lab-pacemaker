@@ -25,6 +25,6 @@ The repository includes detailed Virtual Machine installation ans configuration 
 * PCS (Pacemaker Configuration System)
 * VMware Workstation Pro
 * Three-node cluster setup
-* Storage resource (File System)
+* Shared Storage (File System Resource)
 
 This repository reflects my continuous learning journey in Linux High Availability and is intended to serve as both a personal knowledge base and a practical reference for Linux System Administration, Red Hat Cluster, and Infrastructure Engineering.
