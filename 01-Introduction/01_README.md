@@ -1,8 +1,8 @@
 # Red Hat High Availability Cluster Lab
 
-This repository documents my hands-on practice with **Red Hat High Availability (HA) Cluster** using **Pacemaker**, **Corosync**, and **PCS**. The project demonstrates the end-to-end setup and administration of a two-node HA cluster in a virtual lab environment.
+This repository documents my hands-on practice with **Red Hat High Availability (HA) Cluster** using **Pacemaker**, **Corosync**, and **PCS**. The project demonstrates the end-to-end setup and administration of a three-node HA cluster in a virtual lab environment.
 
-The repository includes detailed installation steps, cluster configuration, node authentication, resource creation and management, quorum concepts, failover testing, cluster monitoring, troubleshooting procedures, and commonly used commands. It also contains architecture diagrams, screenshots, shell scripts, and interview-focused notes to reinforce practical understanding.
+The repository includes detailed Virtual Machine installation ans configuration steps, Cluster nodes set-up, cluster configuration, node authentication, resource creation and management, quorum concepts, failover testing, cluster monitoring, troubleshooting procedures, and commonly used commands. It also contains architecture diagrams, screenshots, and interview-focused notes to reinforce practical understanding.
 
 ## Topics Covered
 
@@ -19,11 +19,12 @@ The repository includes detailed installation steps, cluster configuration, node
 
 ## Lab Environment
 
-* Red Hat Enterprise Linux 9
+* Red Hat Enterprise Linux 9.0
 * Pacemaker
 * Corosync
 * PCS (Pacemaker Configuration System)
-* VMware Workstation
-* Two-node cluster setup
+* VMware Workstation Pro
+* Three-node cluster setup
+* Storage resource (File System)
 
 This repository reflects my continuous learning journey in Linux High Availability and is intended to serve as both a personal knowledge base and a practical reference for Linux System Administration, Red Hat Cluster, and Infrastructure Engineering.
