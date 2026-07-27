@@ -1,8 +1,9 @@
 # VMware Workstation Setup
 
-VMware Workstation is a desktop virtualization software that allows multiple operating systems to run simultaneously on a single physical computer. It provides an isolated environment for testing, development, and learning without affecting the host operating system.
+VMware Workstation is a desktop virtualization software that allows multiple operating systems to run simultaneously on a single physical computer.
+It provides an isolated environment for testing, development, and learning without affecting the host operating system.
 
-In this project, VMware Workstation is used to build a Red Hat High Availability (HA) Cluster by creating multiple Red Hat Enterprise Linux virtual machines.
+In this project, VMware Workstation Pro 26H1 is used to build a Red Hat High Availability (HA) Cluster by creating multiple Red Hat Enterprise Linux virtual machines.
 
 ---
 
@@ -12,7 +13,7 @@ In this project, VMware Workstation is used to build a Red Hat High Availability
 |-----------|-------------|
 | Host OS | Windows 10/11 (64-bit) |
 | Hypervisor | VMware Workstation Pro |
-| Guest OS | Red Hat Enterprise Linux 9 |
+| Guest OS | Red Hat Enterprise Linux |
 | CPU | Intel VT-x / AMD-V Supported |
 | RAM | Minimum 12 GB (16 GB Recommended) |
 | Disk Space | 80 GB Free |
@@ -21,7 +22,7 @@ In this project, VMware Workstation is used to build a Red Hat High Availability
 
 # Downloading VMware Workstation Pro
 
-VMware Workstation Pro is used in this lab to create virtual machines for the Red Hat High Availability Cluster. Before downloading the software, you need to register for a free Broadcom account.
+Before downloading the software, you need to register for a free Broadcom account.
 
 ### Step 1: Create a Broadcom Account
 
@@ -32,7 +33,7 @@ VMware Workstation Pro is used in this lab to create virtual machines for the Re
 
 ### Step 2: Sign In
 
-- Log in to the Broadcom Support Portal using your registered email address and password.
+- Log in to the Broadcom Support Portal(https://support.broadcom.com) using your registered email address and password.
 
 ### Step 3: Navigate to Downloads
 
@@ -57,7 +58,7 @@ My Downloads
 
 ---
 
-# Downloading Red Hat Enterprise Linux (RHEL) DVD ISO
+# Downloading Red Hat Enterprise Linux 9.x (RHEL) DVD ISO
 
 Red Hat Enterprise Linux (RHEL) is the operating system used throughout this lab. A free **Red Hat Developer Subscription for Individuals** allows you to download and use RHEL for learning and development purposes.
 
@@ -75,7 +76,7 @@ Red Hat Enterprise Linux (RHEL) is the operating system used throughout this lab
 
 - Sign in to the Red Hat Developer Portal.
 - Navigate to the **RHEL Downloads** page.
-- Select the latest **Red Hat Enterprise Linux 9** release.
+- Select the **Red Hat Enterprise Linux 9.x** release.
 - Choose the **x86_64 DVD ISO** image (https://developers.redhat.com/products/rhel/download?utm_source=chatgpt.com).
 
 ### Step 4: Save the ISO
@@ -85,14 +86,7 @@ Red Hat Enterprise Linux (RHEL) is the operating system used throughout this lab
 
 ---
 
-## Recommended Downloads
-
-| Software | Version | Architecture |
-|----------|---------|--------------|
-| VMware Workstation Pro | Latest Stable Release | Windows x64 |
-| Red Hat Enterprise Linux | RHEL 9.x | x86_64 DVD ISO |
-
----
+In this project, we are using Red Hat Enterprise Linux 9.8 (Plow)
 
 ## Next Step
 
