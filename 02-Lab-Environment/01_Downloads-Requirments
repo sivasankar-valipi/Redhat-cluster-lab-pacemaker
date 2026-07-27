@@ -20,7 +20,7 @@ In this project, VMware Workstation Pro 26H1 is used to build a Red Hat High Ava
 
 ---
 
-# Downloading VMware Workstation Pro
+# ***Downloading VMware Workstation Pro***
 
 Before downloading the software, you need to register for a free Broadcom account.
 
@@ -58,7 +58,7 @@ My Downloads
 
 ---
 
-# Downloading Red Hat Enterprise Linux 9.x (RHEL) DVD ISO
+# ***Downloading Red Hat Enterprise Linux 9.x (RHEL) DVD ISO***
 
 Red Hat Enterprise Linux (RHEL) is the operating system used throughout this lab. A free **Red Hat Developer Subscription for Individuals** allows you to download and use RHEL for learning and development purposes.
 
