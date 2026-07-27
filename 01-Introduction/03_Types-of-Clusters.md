@@ -6,7 +6,7 @@ Clusters are designed to meet different business requirements. Some focus on ens
 
 ## Types of Clusters
 
-1. High Availability (HA) Cluster
+1. High Availability (HA) Cluster - (Pacemaker + Corosync)
 2. Load Balancing Cluster
 3. High Performance Computing (HPC) Cluster
 4. Storage Cluster
@@ -15,7 +15,7 @@ Clusters are designed to meet different business requirements. Some focus on ens
 
 ---
 
-# 1. High Availability (HA) Cluster
+# 1. High Availability (HA) Cluster - (Pacemaker + Corosync)
 
 ## Purpose
 
@@ -254,4 +254,4 @@ A Kubernetes Cluster manages containerized applications by automatically deployi
 
 Each cluster type is designed to solve a specific problem. High Availability clusters ensure continuous service, Load Balancing clusters improve performance, HPC clusters increase computational power, Storage clusters provide resilient shared storage, Database clusters protect critical data, and Kubernetes clusters simplify container management.
 
-**In this repository, the primary focus is on **High Availability (HA) Cluster** using **Red Hat Enterprise Linux**, **Pacemaker**, and **Corosyn**c**.
+**In this repository, the primary focus is on **High Availability (HA) Cluster** using **Red Hat Enterprise Linux 9.0**, **Pacemaker**, and **Corosyn**c**.
