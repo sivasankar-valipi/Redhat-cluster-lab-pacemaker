@@ -1,7 +1,7 @@
 # Verify Cluster Connectivity
 
 Before installing Pacemaker and Corosync, every node in the cluster must be able to communicate reliably with the other nodes.
-These verification steps help ensure that the operating system, networking, and security settings are correctly configured. Completing these checks beforehand reduces the chances of cluster communication issues and simplifies troubleshooting later.
+These verification steps help ensure that the operating system, networking, and security settings are correctly configured.
 
 ## Verify Machine ID
 
@@ -13,12 +13,12 @@ Example output:
 
 fbeea06fd5d74c20b42083cb7d3d78b1
 
-Regenerate the Machine ID (If Duplicate)
-
 If two nodes have the same Machine ID, remove the existing file and generate a new one.
 
 sudo rm -f /etc/machine-id
+
 sudo systemd-machine-id-setup
+
 sudo reboot
 
 After the reboot, verify the new Machine ID again.
@@ -130,11 +130,19 @@ chronyc sources -v
 Before proceeding with the installation of Pacemaker and Corosync, verify that the following requirements have been completed successfully.
 
 Unique Machine ID on every node	✅
+
 /etc/hosts configured correctly	✅
+
 Internet connectivity verified	✅
+
 Hostname resolution working	✅
+
 Private cluster network reachable	✅
+
 SSH connectivity testing	✅
+
 Firewall configuration verified	✅
+
 SELinux status verified	✅
+
 Time synchronization completed	✅
