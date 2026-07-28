@@ -1,6 +1,4 @@
-# Install Red Hat Enterprise Linux 9.8
-
-**Steps to follow**
+## The step-by-step procedure for installing Red Hat Enterprise Linux 9.8 on virtual machines that will serve as nodes in a Pacemaker/Corosync high-availability cluster. 
 
 **Step 1**
 
@@ -106,7 +104,7 @@ Create a standard user if required.
 
 **Step 8**
 
-Click  --> Begin Installation
+Click --> Begin Installation
 
 Wait for the installation to complete.
 
