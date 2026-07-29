@@ -1,4 +1,4 @@
-# The step-by-step procedure for installing Red Hat Enterprise Linux 9.8 on virtual machines that will serve as nodes in a Pacemaker/Corosync high-availability cluster. 
+## The step-by-step procedure for installing Red Hat Enterprise Linux 9.8 on virtual machines that will serve as nodes in a Pacemaker/Corosync high-availability cluster. 
 
 A Red Hat High Availability cluster consists of three major components.
 
@@ -23,7 +23,9 @@ All prerequisite connectivity checks have been completed.
 yum repolist
 
 rhel-9-for-x86_64-baseos-rpms
+
 rhel-9-for-x86_64-appstream-rpms
+
 rhel-9-for-x86_64-highavailability-rpms
 
 If the High Availability repository is missing, enable it.
@@ -41,10 +43,6 @@ Install the required packages on every cluster node.
 Verify the Installation
 
 rpm -q pcs pacemaker corosync
-
-Example output
-
-What Was Installed?
 
 ## pcs
 
