@@ -1,4 +1,4 @@
-## Components
+## Components of Red Hat High Availability Cluster
 
 ### Client
 
