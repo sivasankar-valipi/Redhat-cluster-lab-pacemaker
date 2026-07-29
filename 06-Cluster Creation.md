@@ -10,59 +10,55 @@ several operations occur automatically behind the scenes.
 
 1. Creates the Cluster Configuration
 
-The pcs utility instructs the pcsd daemon on every node to generate the Corosync configuration file.
+   The pcs utility instructs the pcsd daemon on every node to generate the Corosync configuration file.
 
-/etc/corosync/corosync.conf
+   /etc/corosync/corosync.conf
 
-This file contains:
+   This file contains:
 
-Cluster name
+      Cluster name
 
-Cluster nodes
+      Cluster nodes
 
-Communication addresses
+      Communication addresses
 
-Quorum configuration
+      Quorum configuration
 
-Corosync transport settings
+      Corosync transport settings
 
 2. Distributes the Configuration
 
-After generating the configuration, pcsd copies the same configuration file to every node.
+   After generating the configuration, pcsd copies the same configuration file to every node.
 
-This guarantees that every cluster member has an identical configuration.
+   This guarantees that every cluster member has an identical configuration.
 
 3. Generates Authentication Keys
 
-Corosync requires secure communication between nodes.
+   Corosync requires secure communication between nodes.
 
-During cluster setup, an authentication key is generated.
+   During cluster setup, an authentication key is generated.
 
 4. Prepares Pacemaker
 
-Pacemaker is not yet managing resources.
+   Pacemaker is not yet managing resources.
 
-Instead, it prepares its internal database so that resources can later be added.
+   Instead, it prepares its internal database so that resources can later be added.
 
 5. Creates Cluster Membership
 
-Corosync now knows:
+   Corosync now knows:
 
-Which systems belong to the cluster.
+     Which systems belong to the cluster.
 
-Which IP addresses should exchange heartbeat packets.
+     Which IP addresses should exchange heartbeat packets.
 
-Which nodes are expected to participate in quorum.
+     Which nodes are expected to participate in quorum.
 
 ### Create the Cluster
 
 sudo pcs cluster setup mycluster node1 node2 node3
 
-Note: The cluster setup command only needs to be executed once. The configuration is automatically distributed to all participating nodes.
-
 Verify the Configuration File
-
-After cluster creation, verify that the Corosync configuration has been generated.
 
 ls -l /etc/corosync/
 
@@ -90,9 +86,9 @@ One node is displayed as the Current DC.
 
 Example:
 
-***Current DC: node1***
+**Current DC: node1**
 
-The DC (Designated Controller) is the Pacemaker node responsible for coordinating cluster decisions.
+The ***DC (Designated Controller)*** is the Pacemaker node responsible for coordinating cluster decisions.
 
 The DC:
 
