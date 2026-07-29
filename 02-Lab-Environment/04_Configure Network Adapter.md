@@ -121,7 +121,7 @@ Software Selection - Minimal Install
 
 Adapter 1: NAT (Internet access for installing packages)
 
-IP Address -192.168.237.129/24 - ens160
+IP Address -192.168.237.133/24 - ens160
 
 Subnet - 255.255.255.0
 
@@ -163,7 +163,7 @@ DNS - 192.168.237.2 or 8.8.8.8
 
 Adapter 2: Host-only (private cluster communication)
 
-IP Address -192.168.43.130/24 - ens224
+IP Address -192.168.43.132/24 - ens224
 
 Subnet -255.255.255.0
 
@@ -187,4 +187,4 @@ DNS - None
         │                │                │
       node1            node2            node3
       ens224           ens224           ens224
-      192.168.43.128    192.168.43.129    192.168.43.130
+      192.168.43.128    192.168.43.133    192.168.43.132
