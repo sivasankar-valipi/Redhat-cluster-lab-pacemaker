@@ -1,8 +1,8 @@
 A Red Hat High Availability cluster consists of three major components.
 
-## Pacemaker – The Cluster Resource Manager responsible for starting, stopping, monitoring, and recovering applications.
-## Corosync – Provides cluster membership, quorum, and reliable communication between nodes.
-## pcs – A command-line management tool used to configure and administer the cluster.
+### Pacemaker – The Cluster Resource Manager responsible for starting, stopping, monitoring, and recovering applications.
+### Corosync – Provides cluster membership, quorum, and reliable communication between nodes.
+### pcs – A command-line management tool used to configure and administer the cluster.
 
 ### Prerequisites
 
@@ -66,10 +66,15 @@ Pacemaker is the Cluster Resource Manager (CRM).
 It continuously monitors cluster resources and makes intelligent decisions about:
 
 1.Starting services
+
 2.Stopping services
+
 3.Restarting failed resources
+
 4.Moving resources between nodes
+
 5.Detecting failures
+
 6.Performing automatic failover
 
 Pacemaker acts as the brain of the cluster.
