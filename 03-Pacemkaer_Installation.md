@@ -1,4 +1,4 @@
-## The step-by-step procedure for installing Red Hat Enterprise Linux 9.8 on virtual machines that will serve as nodes in a Pacemaker/Corosync high-availability cluster. 
+After preparing the operating system and verifying cluster connectivity, the next step is to install the High Availability software stack. 
 
 A Red Hat High Availability cluster consists of three major components.
 
