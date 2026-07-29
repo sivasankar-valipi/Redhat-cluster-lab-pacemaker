@@ -19,7 +19,7 @@ The repository includes detailed Virtual Machine installation ans configuration 
 
 ## Lab Environment
 
-* Red Hat Enterprise Linux 9.0
+* Red Hat Enterprise Linux 9.8
 * Pacemaker
 * Corosync
 * PCS (Pacemaker Configuration System)
