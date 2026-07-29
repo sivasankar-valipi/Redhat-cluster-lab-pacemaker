@@ -1,5 +1,3 @@
-After preparing the operating system and verifying cluster connectivity, the next step is to install the High Availability software stack. 
-
 A Red Hat High Availability cluster consists of three major components.
 
 ## Pacemaker – The Cluster Resource Manager responsible for starting, stopping, monitoring, and recovering applications.
@@ -16,11 +14,10 @@ Hostnames resolve correctly.
 Nodes can communicate over the private cluster network.
 Time synchronization is working.
 SSH connectivity configured.
-All prerequisite connectivity checks have been completed.
 
 ### Verify that the required repositories are enabled.
 
-yum repolist
+#### yum repolist
 
 rhel-9-for-x86_64-baseos-rpms
 
@@ -30,7 +27,7 @@ rhel-9-for-x86_64-highavailability-rpms
 
 If the High Availability repository is missing, enable it.
 
-subscription-manager repos --enable=rhel-9-for-x86_64-highavailability-rpms
+#### subscription-manager repos --enable=rhel-9-for-x86_64-highavailability-rpms
 
 Note: If you are using the RHEL Developer Subscription or an evaluation subscription, ensure the system is registered with Red Hat before enabling repositories.
 
@@ -42,7 +39,7 @@ Install the required packages on every cluster node.
 
 Verify the Installation
 
-rpm -q pcs pacemaker corosync
+#### rpm -q pcs pacemaker corosync fence-agents-all
 
 ## pcs
 
