@@ -152,3 +152,7 @@ Pacemaker avoids unnecessary movement of resources because relocating them can b
 If Node2 is healthy and already hosting the VIP, Pacemaker typically leaves it there unless a policy, constraint, or administrator action requires it to move.
 
 This behavior improves overall service stability.
+
+#### Summary
+
+In this chapter, you verified that the Virtual IP is a truly highly available resource. By placing the active node into standby or stopping the cluster on that node, Pacemaker automatically relocated the VIP to another healthy node. The IPaddr2 Resource Agent handled the network configuration, while Corosync detected the membership change and Pacemaker made the placement decision. From the client's perspective, the service remained reachable through the same IP address, demonstrating transparent failover.
