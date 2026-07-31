@@ -124,3 +124,12 @@ manages an Apache web server
 ocf:heartbeat:Filesystem
 
 manages a mounted filesystem.
+
+### Key Points:
+A Resource is anything Pacemaker can manage (start, stop, monitor, or relocate).
+
+A Resource Agent (RA) contains the logic required to control a specific resource.
+
+Pacemaker relies on OCF-compliant Resource Agents instead of implementing application-specific behavior itself.
+
+ocf:heartbeat:IPaddr2 is the Resource Agent responsible for managing Virtual IP addresses.
