@@ -40,3 +40,28 @@ If Node1 fails, Pacemaker instructs the IPaddr2 Resource Agent to remove the VIP
 
 From the client's perspective, nothing changes—they continue connecting to the same IP address while Pacemaker handles the failover in the background.
 
+## Create the Virtual IP Resource
+
+***Syntax: pcs resource create <Resource_Name> ocf:heartbeat:IPaddr2 ip=<Virtual_IP> cidr_netmask=<Netmask> op monitor interval=<Time>***
+
+pcs resource create clusterIP ip=192.168.43.154 ocf:heartbeat:IPaddr2 op monitor interval=30s
+
+### Verify the Resource
+
+--> pcs status
+
+Cluster name: mycluster
+
+Node List:
+
+ * Online: [ node1 node2 node3 ]
+
+Full List of Resources:
+
+ * ClusterIP (ocf:heartbeat:IPaddr2): Started node1
+
+--> pcs resource status
+
+--> ip a
+
+
