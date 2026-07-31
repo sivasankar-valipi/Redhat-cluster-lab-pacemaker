@@ -40,9 +40,3 @@ If Node1 fails, Pacemaker instructs the IPaddr2 Resource Agent to remove the VIP
 
 From the client's perspective, nothing changes—they continue connecting to the same IP address while Pacemaker handles the failover in the background.
 
-### Key Points:
-A Resource is anything Pacemaker can manage (start, stop, monitor, or relocate).
-A Resource Agent (RA) contains the logic required to control a specific resource.
-Pacemaker relies on OCF-compliant Resource Agents instead of implementing application-specific behavior itself.
-ocf:heartbeat:IPaddr2 is the Resource Agent responsible for managing Virtual IP addresses.
-A Virtual IP provides a stable endpoint for clients while allowing services to move seamlessly between cluster nodes during failover.
