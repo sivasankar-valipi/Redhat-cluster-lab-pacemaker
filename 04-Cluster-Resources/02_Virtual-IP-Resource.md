@@ -6,16 +6,16 @@ Unlike a physical IP address configured in the operating system, a Virtual IP ca
 
 For example:
 
-Node1
-------
+Node1:
+
 Physical IP : 192.168.43.128
 
-Node2
-------
-Physical IP : 192.168.43.129
+Node2:
 
-Virtual IP
------------
+Physical IP : 192.168.43.133
+
+Virtual IP:
+
 192.168.43.150
 
 Initially, the Virtual IP may be assigned to Node1.
@@ -44,7 +44,7 @@ From the client's perspective, nothing changes—they continue connecting to the
 
 ***Syntax: pcs resource create <Resource_Name> ocf:heartbeat:IPaddr2 ip=<Virtual_IP> cidr_netmask=<Netmask> op monitor interval=<Time>***
 
-pcs resource create clusterIP ip=192.168.43.154 ocf:heartbeat:IPaddr2 op monitor interval=30s
+--> pcs resource create clusterIP ip=192.168.43.154 ocf:heartbeat:IPaddr2 op monitor interval=30s
 
 ### Verify the Resource
 
@@ -64,4 +64,91 @@ Full List of Resources:
 
 --> ip a
 
+## Testing Virtual IP Failover
 
+Put a Node1 into Standby
+
+Instead of shutting down the server, place the active node into standby.
+
+***pcs node standby node1***
+
+When the standby command is executed:
+
+Pacemaker marks Node1 as Standby.
+
+Resources are no longer allowed to run on Node1.
+
+Pacemaker selects another eligible node.
+
+The IPaddr2 Resource Agent removes the VIP from Node1.
+
+The IPaddr2 Resource Agent assigns the VIP to Node2.
+
+A Gratuitous ARP is sent to update the network.
+
+### Failover Workflow:
+
+Administrator
+      │
+      ▼
+pcs node standby node1
+      │
+      ▼
+Node1 marked Standby
+      │
+      ▼
+Pacemaker relocates ClusterIP
+      │
+      ▼
+VIP removed from Node1
+      │
+      ▼
+VIP assigned to Node2
+      │
+      ▼
+Gratuitous ARP Broadcast
+      │
+      ▼
+Clients continue using same VIP
+
+### Verify the Resource Location
+
+--> pcs status
+
+ Output:
+
+Cluster name: mycluster
+
+Node List:
+
+ * Node node1: standby
+   
+ * Online: [ node2 node3 ]
+
+Full List of Resources:
+
+ * ClusterIP (ocf:heartbeat:IPaddr2): Started node2
+
+The Virtual IP has successfully moved to Node2.
+
+Verify the VIP on Node2
+
+--> ip addr show
+
+The VIP is now assigned to Node2.
+
+***Bring Node1 back online***
+
+pcs node unstandby node1
+
+Verify: pcs status
+
+Node1 is available to host resources again. Whether the VIP moves back automatically depends on your resource configuration, stickiness, and location preferences.
+
+***Important Note: Does the VIP Automatically Move Back to node1?***
+
+Pacemaker avoids unnecessary movement of resources because relocating them can briefly interrupt client connections.
+
+If Node2 is healthy and already hosting the VIP, Pacemaker typically leaves it there unless a policy, constraint, or administrator action requires it to move.
+
+This behavior improves overall service stability.
