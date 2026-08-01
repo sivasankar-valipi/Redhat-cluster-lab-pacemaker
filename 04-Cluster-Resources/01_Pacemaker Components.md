@@ -125,6 +125,26 @@ ocf:heartbeat:Filesystem
 
 manages a mounted filesystem.
 
+One node is displayed as the Current DC.
+
+Example:
+
+**Current DC: node1**
+
+The ***DC (Designated Controller)*** is the Pacemaker node responsible for coordinating cluster decisions.
+
+The DC:
+
+Collects cluster status information.
+
+Decides where resources should run.
+
+Detects failures.
+
+Initiates failover when necessary.
+
+Important: The DC is not a permanent master node. If it fails or leaves the cluster, Pacemaker automatically elects another node as the new DC.
+
 ### Key Points:
 A Resource is anything Pacemaker can manage (start, stop, monitor, or relocate).
 
