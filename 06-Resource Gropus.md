@@ -7,7 +7,9 @@ Pacemaker manages:
 WebGroup
 
 ├── SharedFS
+
 ├── VirtualVIP
+
 └── Apache
 
 ***How Pacemaker Internally Sees a Group***
@@ -28,7 +30,7 @@ Resource 3
 
 #### Create a Resource Group
 
-***pcs resource group add WebGroup SharedFS VirtualVIP WebServer***
+pcs resource group add WebGroup SharedFS VirtualVIP WebServer
 
 Verify:
 
