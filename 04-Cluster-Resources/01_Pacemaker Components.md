@@ -125,7 +125,7 @@ ocf:heartbeat:Filesystem
 
 manages a mounted filesystem.
 
-One node is displayed as the Current DC.
+***One node is displayed as the Current DC.***
 
 Example:
 
