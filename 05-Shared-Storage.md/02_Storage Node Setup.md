@@ -168,3 +168,25 @@ DNS - None
       node1        node2        node3       storage
       ens224       ens224       ens224       ens224
   192.168.43.128 192.168.43.133 192.168.43.132 192.168.43.130
+
+ ### Update /etc/hosts file:
+
+ On all nodes update hosts file with storage ip address
+
+ 192.168.43.130 storage.lab.local storage
+
+ ***Verify***
+
+ From Node1: ping storage
+
+ From Node3 or storage: ping Node2
+
+ #### Verify the disks
+
+ lsblk
+
+ NAME   SIZE
+
+NVMe     20G
+
+sda      5G
