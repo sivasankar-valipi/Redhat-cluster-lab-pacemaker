@@ -1,4 +1,4 @@
-### The step-by-step procedure for installing Red Hat Enterprise Linux 9.0 on virtual machines that will serve as storage node in a Pacemaker/Corosync high-availability cluster.
+### The step-by-step procedure for installing Red Hat Enterprise Linux 9.0 on virtual machine and configuring iscsi storage server that will serve as storage node in a Pacemaker/Corosync high-availability cluster.
 
 **Step 1**
 
