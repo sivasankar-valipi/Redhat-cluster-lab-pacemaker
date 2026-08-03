@@ -96,4 +96,75 @@ Once finished,
 
 Click --> Reboot System
 
+## Add another Network Adaptor
 
+***In VMware Workstation: ***
+
+Right-click on Storage virtual machine.
+
+Select Settings.
+
+Go to Network Adapter.
+
+Ensure Network Adapter 1 is set to NAT.
+
+Click Add.
+
+Select Network Adapter.
+
+Click Finish.
+
+Choose Host-only for the new adapter.
+
+Click Ok.
+
+## Storage Node Configuration:
+
+Virtual Disk - 20GB (NVMe)
+
+Additional Disk -5GB (SCSI) - /dev/sda
+
+OS - Red Hat Enterprise Linux 9.0
+
+Host Name - storage.lab.local
+
+Username - redhat
+
+Software Selection - Minimal Install
+
+Adapter 1: NAT (Internet access for installing packages)
+
+IP Address -192.168.237.131/24 - ens160
+
+Subnet - 255.255.255.0
+
+Gateway - 192.168.237.2
+
+DNS - 192.168.237.2 or 8.8.8.8
+
+Adapter 2: Host-only (private cluster communication)
+
+IP Address -192.168.43.131/24 - ens224
+
+Subnet -255.255.255.0
+
+Gateway - None
+
+DNS - None
+
+                            NAT Network
+                          192.168.237.0/24
+        ┌────────────┬────────────┬────────────
+        │            │            │            │        
+      node1        node2        node3       storage
+      ens160       ens160       ens160       ens160
+192.168.237.128 192.168.237.129 192.168.237.130 192.168.237.131
+
+
+                          Host-only Network
+                          192.168.43.0/24
+        ┌────────────┬────────────┬────────────┬
+        │            │            │            │           
+      node1        node2        node3       storage
+      ens224       ens224       ens224       ens224
+192.168.43.128 192.168.43.133 192.168.43.132 192.168.43.130
