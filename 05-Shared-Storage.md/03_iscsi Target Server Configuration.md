@@ -1,6 +1,6 @@
 Before we create the iSCSI target, we will learn about objects inside an iscsi target.
 
-**1.Backstore**
+**1. Backstore**
 
 A ***Backstore*** is the storage object that the iSCSI target exports. 
 
@@ -16,7 +16,7 @@ File-backed image
 
 RAM disk
 
-**2.iSCSI Target (IQN)**
+**2. iSCSI Target (IQN)**
 
 iSCSI Target
 
@@ -26,11 +26,11 @@ Connection Point
 
 It doesn't contain storage yet.
 
-**3.Logical Unit Number (LUN)**
+**3. Logical Unit Number (LUN)**
 
 The LUN is what the client eventually sees as a disk.
 
-**4.Access Control List (ACL)**
+**4. Access Control List (ACL)**
 
 We decide which initiators are allowed.
 
@@ -44,7 +44,7 @@ node2 IQN
 
 node3 IQN
 
-**5.Portal**
+**5. Portal**
 
 The target needs a network address.
 
@@ -56,7 +56,7 @@ TCP Port → 3260 (default iSCSI port)
 
 This is where initiators connect.
 
-**6.Target Portal Group (tpg)**
+**6. Target Portal Group (tpg)**
 
 It holds:
 
@@ -223,3 +223,12 @@ cd /
 saveconfig
 
 exit
+
+**Step 10:** Configure Firewall
+
+firewall-cmd --permanent --add-port=3260/tcp
+
+firewall-cmd --reload
+
+firewall-cmd --list-ports
+
