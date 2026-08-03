@@ -95,3 +95,5 @@ Wait for the installation to complete.
 Once finished,
 
 Click --> Reboot System
+
+
