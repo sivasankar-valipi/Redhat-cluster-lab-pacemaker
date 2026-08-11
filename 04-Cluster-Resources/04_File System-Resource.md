@@ -12,13 +12,19 @@ A **Filesystem Resource** is a Pacemaker-managed resource that mounts and unmoun
 
 Consider a shared iSCSI disk.
 
-             iSCSI Target
-                  │
-        Shared Disk (/dev/sdb)
-                  │
-      ┌───────────┴───────────┐
-      │                       │
-   node1                   node2
+         ```text
+                 iSCSI Target
+                      │
+                      ▼
+            Shared Disk (/dev/sda)
+                      │
+             ┌────────┴────────┐
+             │                 │
+             ▼                 ▼
+          ┌───────┐         ┌───────┐
+          │ node1 │         │ node2 │
+          └───────┘         └───────┘
+```
 
 Although both nodes can discover the disk, only one node should mount it at a time (for a standard filesystem like XFS or ext4).
 
@@ -37,3 +43,4 @@ It is mounted on the new active node after failover.
 The Filesystem Resource uses the following Resource Agent:
 
 ****ocf:heartbeat:Filesystem****
+
