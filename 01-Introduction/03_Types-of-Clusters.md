@@ -4,7 +4,6 @@ Clusters are designed to meet different business requirements. Some focus on ens
 
 ---
 
-## Types of Clusters
 
 1. High Availability (HA) Cluster - (Pacemaker + Corosync)
 2. Load Balancing Cluster
