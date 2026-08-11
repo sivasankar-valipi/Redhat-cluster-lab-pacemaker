@@ -92,38 +92,42 @@ pcs cluster status
 
 ### Cluster Architecture
 
-                         Client
-                           │
-                           │
-                  Virtual IP (VIP)
-                           │
-                           ▼
-                  +----------------+
-                  |   Pacemaker    |
-                  | Cluster Manager|
-                  +----------------+
-                           │
-             Heartbeat & Cluster Communication
-                           │
-        ┌──────────────────┼──────────────────┐
-        │                  │                  │
-        ▼                  ▼                  ▼
- +--------------+   +--------------+   +--------------+
- |    Node 1    |   |    Node 2    |   |    Node 3    |
- |--------------|   |--------------|   |--------------|
- | node1.lab.local| | node2.lab.local| | node3.lab.local|
- |              |   |              |   |              |
- | Host:        |   | Host:        |   | Host:        |
- | 192.168.43.128|  | 192.168.43.133|  | 192.168.43.132|
- |              |   |              |   |              |
- | NAT:         |   | NAT:         |   | NAT:         |
- | 192.168.237.128| | 192.168.237.129| | 192.168.237.131|
- |              |   |              |   |              |
- | RHEL 9       |   | RHEL 9       |   | RHEL 9       |
- | Pacemaker    |   | Pacemaker    |   | Pacemaker    |
- | Corosync     |   | Corosync     |   | Corosync     |
- | PCS          |   | PCS          |   | PCS          |
- |              |   |              |   |              |
- | Active       |   | Standby      |   | Standby      |
- | Resource     |   | Resource     |   | Resource     |
- +--------------+   +--------------+   +--------------+
+  ## Cluster Architecture
+
+```text
+                              Client
+                                │
+                                ▼
+                       Virtual IP (VIP)
+                        192.168.43.157
+                                │
+                                ▼
+                       ┌─────────────────┐
+                       │    Pacemaker    │
+                       │ Cluster Manager │
+                       └────────┬────────┘
+                                │
+                  Heartbeat & Cluster Communication
+                                │
+          ┌─────────────────────┼─────────────────────┐
+          │                     │                     │
+          ▼                     ▼                     ▼
+   ┌──────────────┐      ┌──────────────┐      ┌──────────────┐
+   │    Node 1    │      │    Node 2    │      │    Node 3    │
+   │──────────────│      │──────────────│      │──────────────│
+   │ node1.lab.local│    │ node2.lab.local│    │ node3.lab.local│
+   │              │      │              │      │              │
+   │ Host-Only:   │      │ Host-Only:   │      │ Host-Only:   │
+   │ 192.168.43.128│     │ 192.168.43.133│     │ 192.168.43.132│
+   │              │      │              │      │              │
+   │ NAT:         │      │ NAT:         │      │ NAT:         │
+   │ 192.168.237.128│     │ 192.168.237.129│     │ 192.168.237.131│
+   │              │      │              │      │              │
+   │ RHEL 9       │      │ RHEL 9       │      │ RHEL 9       │
+   │ Pacemaker    │      │ Pacemaker    │      │ Pacemaker    │
+   │ Corosync     │      │ Corosync     │      │ Corosync     │
+   │ PCS          │      │ PCS          │      │ PCS          │
+   │              │      │              │      │              │
+   │   ACTIVE     │      │   STANDBY    │      │   STANDBY    │
+   └──────────────┘      └──────────────┘      └──────────────┘
+```
