@@ -138,7 +138,6 @@ A Storage Cluster provides centralized, highly available storage that can be acc
 
 ### Architecture
 
-       ## Architecture
 
 ```text
              Applications
