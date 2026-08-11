@@ -31,7 +31,7 @@ pcs host auth node1 node2 -u hacluster
                       │
                       ▼
              Mutual Trust Established
-
+             
 Once authentication is complete, pcs can securely execute cluster management commands on every node.
 
 ***Set the Password***
