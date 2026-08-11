@@ -108,7 +108,7 @@ Instead of performing the operating system installation multiple times, cloning 
 
 5.Simplifies the deployment of multi-node cluster environments.
 
-##In VMware Workstation Pro:
+## In VMware Workstation Pro:
 
 **Step 1**: Right-click **Node1**.
 
