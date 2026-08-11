@@ -12,7 +12,7 @@ A **Filesystem Resource** is a Pacemaker-managed resource that mounts and unmoun
 
 Consider a shared iSCSI disk.
 
-         ```text
+         ```
                  iSCSI Target
                       │
                       ▼
@@ -44,3 +44,12 @@ The Filesystem Resource uses the following Resource Agent:
 
 ****ocf:heartbeat:Filesystem****
 
+## Create File System Resource
+
+pcs resource create SharedFS ocf:heartbeat:Filesystem device="/dev/sda" directory="/shared_data" fstype="xfs" op monitor interval=20s
+
+**verify**
+
+pcs status
+
+pcs resource status
