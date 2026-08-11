@@ -89,27 +89,42 @@ A Gratuitous ARP is sent to update the network.
 ### Failover Workflow:
 
 Administrator
+
      │
      ▼
+     
 pcs node standby node1
+
      │
      ▼
+     
 Node1 marked Standby
+
      │
      ▼
+     
 Pacemaker relocates ClusterIP
+
      │
      ▼
+     
 VIP 192.168.43.157 removed from Node1
+
      │
      ▼
+     
 VIP 192.168.43.157 assigned to Node2
+
      │
      ▼
+     
 Gratuitous ARP Broadcast
+
      │
      ▼
+     
 Clients continue using 192.168.43.157
+
 
 ### Verify the Resource Location
 
