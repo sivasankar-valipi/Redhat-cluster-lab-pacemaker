@@ -1,8 +1,8 @@
-# Red Hat High Availability Cluster Lab
+# Red Hat High Availability Cluster Lab - Pacemaker
 
-This repository documents my hands-on practice with **Red Hat High Availability (HA) Cluster** using **Pacemaker**, **Corosync**, and **PCS**. The project demonstrates the end-to-end setup and administration of a three-node HA cluster in a virtual lab environment.
+This repository documents my hands-on practice with **Red Hat High Availability (HA) Cluster** using **Pacemaker**, **Corosync**, and **PCS**. The project demonstrates the end-to-end setup and administration of a three-node HA cluster with Shared Storage in a virtual lab environment.
 
-The repository includes detailed Virtual Machine installation ans configuration steps, Cluster nodes set-up, cluster configuration, node authentication, resource creation and management, quorum concepts, failover testing, cluster monitoring, troubleshooting procedures, and commonly used commands. It also contains architecture diagrams, screenshots, and interview-focused notes to reinforce practical understanding.
+The repository includes detailed Virtual Machine installation and configuration steps, Cluster nodes set-up, cluster configuration, node authentication, resource creation and management, Shared storage configuration, quorum concepts, failover testing, cluster monitoring, troubleshooting procedures, and commonly used commands. It also contains architecture diagrams, screenshots, and interview-focused notes to reinforce practical understanding.
 
 ## Topics Covered
 
@@ -10,6 +10,7 @@ The repository includes detailed Virtual Machine installation ans configuration 
 * Pacemaker and Corosync architecture
 * PCS cluster configuration and management
 * Node authentication and cluster creation
+* Shared Storage Installation and configuration
 * Cluster resources and resource groups
 * Constraints and resource placement
 * Quorum and split-brain concepts
@@ -19,7 +20,7 @@ The repository includes detailed Virtual Machine installation ans configuration 
 
 ## Lab Environment
 
-* Red Hat Enterprise Linux 9.8
+* Red Hat Enterprise Linux 9.8 and Red Hat Enterprise Linux 9.0
 * Pacemaker
 * Corosync
 * PCS (Pacemaker Configuration System)
