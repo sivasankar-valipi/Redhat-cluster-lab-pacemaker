@@ -11,29 +11,47 @@ Pacemaker acts as the cluster manager, while Corosync provides communication bet
 ## Architecture Diagram
 
 ```text
-                           Client
-                              │
-                              │
-                     Virtual IP (VIP)
-                              │
-                     +----------------+
-                     |   Pacemaker    |
-                     | Cluster Manager|
-                     +----------------+
-                              │
-                Heartbeat & Cluster Communication
-                              │
-        -------------------------------------------------
-        │                                               │
-+------------------------+                 +------------------------+
-|        Node 1          |                 |        Node 2          |
-|------------------------|                 |------------------------|
-| Red Hat Enterprise     |                 | Red Hat Enterprise     |
-| Linux                  |                 | Linux                  |
-|                        |                 |                        |
-| Pacemaker              |<--------------->| Pacemaker              |
-| Corosync               |   Heartbeat     | Corosync               |
-| PCS                    |                 | PCS                    |
-|                        |                 |                        |
-| Application Resource   |                 | Standby Resource       |
-+------------------------+                 +------------------------+
+                         Client
+                           │
+                           │
+                  Virtual IP (VIP)
+                           │
+                  +----------------+
+                  |   Pacemaker    |
+                  | Cluster Manager|
+                  +----------------+
+                           │
+             Heartbeat & Cluster Communication
+                           │
+    -----------------------------------------------------------------
+    │                         │                         │
+    │                         │                         │
++------------------------+ +------------------------+ +------------------------+
+|        Node 1          | |        Node 2          | |        Node 3          |
+|------------------------| |------------------------| |------------------------|
+| node1.lab.local        | | node2.lab.local        | | node3.lab.local        |
+|                        | |                        | |                        |
+| RHEL                   | | RHEL                   | | RHEL                   |
+|                        | |                        | |                        |
+| Pacemaker              |<->| Pacemaker            |<->| Pacemaker              |
+| Corosync               | | Corosync               | | Corosync               |
+| PCS                    | | PCS                    | | PCS                    |
+|                        | |                        | |                        |
+| Application Resource   | | Standby Resource       | | Standby Resource       |
++-----------+------------+ +-----------+------------+ +-----------+------------+
+            │                          │                          │
+            │                          │                          │
+            └──────────────────────────┼──────────────────────────┘
+                                       │
+                                       │
+                              +------------------+
+                              |  Shared Storage  |
+                              |------------------|
+                              | storage.lab.local|
+                              |                  |
+                              | iSCSI LUN         |
+                              | /dev/sdb          |
+                              | LVM / XFS         |
+                              | /shared_data      |
+                              +------------------+
+```
