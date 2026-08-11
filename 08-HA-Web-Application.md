@@ -6,15 +6,19 @@
 Deploy a production-style highly available Apache Web Server using:
 
 - Red Hat Enterprise Linux
-- Pacemaker
-- Corosync
-- Apache HTTP Server
-- Virtual IP
-- Shared XFS Filesystem
-- iSCSI Shared Storage
 
-The web application should remain available even if one cluster node fails.
-01-Architecture.md
+- Pacemaker
+
+- Corosync
+
+- Apache HTTP Server
+
+- Virtual IP
+
+- Shared XFS Filesystem
+
+- iSCSI Shared Storage
+  
 # Architecture
                           Client
 
@@ -47,17 +51,6 @@ The web application should remain available even if one cluster node fails.
                          │
 
                 storage.lab.local
-Components
-Component	Purpose
-Apache	Web Server
-Virtual IP	Client access
-SharedFS	Shared website data
-Pacemaker	Resource Manager
-Corosync	Cluster Communication
-iSCSI	Shared Storage
-02-Prerequisites.md
-
-Include:
 
 ## Cluster Status
 
@@ -72,202 +65,55 @@ Include:
 ✔ XFS Filesystem Created
 
 ✔ Apache Installed
-03-Create-Filesystem-Resource.md
 
-Start with explanation.
+#### Configure Apache
 
-## Why do we need a Filesystem Resource?
+Perform the following configuration on all three cluster nodes:
 
-Pacemaker must control when the shared filesystem is mounted.
+Edit the Apache configuration file:
 
-The operating system should not automatically mount the shared storage because only the active node must access it.
+vi /etc/httpd/conf/httpd.conf
 
-This prevents data corruption and ensures consistent failover.
+Change the DocumentRoot from:
 
-Then command.
+DocumentRoot "/var/www/html"
 
-pcs resource create SharedFS \
- ocf:heartbeat:Filesystem \
- device=/dev/sdb1 \
- directory=/shared_data \
- fstype=xfs
-
-Explain every parameter.
-
-Parameter	Meaning
-device	Shared iSCSI LUN
-directory	Mount point
-fstype	XFS
-04-Configure-Apache.md
-
-Explain:
-
-Why change
-
-/var/www/html
-
-to
-
-/shared_data
-
-Then
+to:
 
 DocumentRoot "/shared_data"
 
-Explain
+Update the corresponding <Directory> section to allow Apache to access the shared directory:
 
 <Directory "/shared_data">
 
-Require all granted
+Create the Web Page
 
-</Directory>
+Because /shared_data is the shared filesystem, you only need to create the website content once.
 
-Very important.
+Log in to any one active cluster node, go to the shared filesystem, and create index.html:
 
-05-Create-Resource-Group.md
+cd /shared_data
 
-Explain
+echo "Welcome to HA Cluster" > index.html
 
-Why Resource Groups?
+The file is stored on the shared iSCSI storage, so when Pacemaker moves the filesystem to another node, Apache on that node can access the same index.html.
 
-SharedFS
+Important: Do not create separate copies of index.html on each node. The purpose of the shared filesystem is for all cluster nodes to access the same application data.
 
-↓
+### Create Cluster Resources
 
-ClusterIP
+pcs resource create SharedFS ocf:heartbeat:Filesystem device="/dev/sda"  directory="/shared_data"  fstype="xfs" op monitor interval=20s
 
-↓
+pcs resource create ClusterIP ocf:heartbeat:IPadrr2 ip=192.168.43.157 subnet=24 op monitor interval=30s
 
-Apache
+pcs resource create Webserver ocf:heartbeat:apache/httpd op monitor interval=30s
 
-Command
+### Create Resource Group
 
-pcs resource group add WebGroup \
- SharedFS \
- ClusterIP \
- WebServer
+pcs resource group add WebGroup SharedFS ClusterIP WebServer
 
-Explain ordering.
-
-Mount
-
-↓
-
-VIP
-
-↓
-
-Apache
-06-Testing.md
-
-Commands
+### verify
 
 pcs status
 
-curl localhost
-
-curl http://VIP
-
-mount
-
-ip a
-
-Expected outputs.
-
-07-Failover-Test.md
-
-Scenario
-
-Resources
-
-↓
-
-node3
-
-Then
-
-pcs node standby node3
-
-Expected
-
-SharedFS
-
-↓
-
-node1
-
-Browser
-
-Website still available
-08-Troubleshooting.md
-
-This chapter will be gold.
-
-Issue 1
-
-Apache serving old page
-
-Symptoms
-
-Welcome from NODE2
-
-Root Cause
-
-DocumentRoot still pointing to local directory.
-
-Resolution
-
-Update
-
-DocumentRoot "/shared_data"
-Issue 2
-
-Apache Default Page
-
-Root Cause
-
-Wrong Directory configuration.
-
-Resolution
-
-<Directory "/shared_data">
-
-Require all granted
-Issue 3
-
-403 Forbidden
-
-Root Cause
-
-Directory permissions / SELinux.
-
-Resolution
-
-chmod 755 /shared_data
-
-SELinux
-
-semanage fcontext
-restorecon
-Issue 4
-
-Resource Agent Timeout
-
-Symptoms
-
-Timed Out
-
-Resolution
-
-pcs resource cleanup WebServer
-Issue 5
-
-Port Already in Use
-
-Root Cause
-
-Started Apache using systemctl while Pacemaker already owned the service.
-
-Resolution
-
-Never manage clustered services directly.
+pcs resource satatus
