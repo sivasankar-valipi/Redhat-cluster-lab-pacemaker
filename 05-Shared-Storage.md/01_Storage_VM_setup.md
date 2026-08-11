@@ -1,5 +1,5 @@
 
-In this lab, we will create a Red Hat Enterprise Linux virtual machine named Storage.
+In this lab, we will create a Red Hat Enterprise Linux virtual machine named **Storage**.
 
 **Step 1** : Open VMware Workstation Pro
 
