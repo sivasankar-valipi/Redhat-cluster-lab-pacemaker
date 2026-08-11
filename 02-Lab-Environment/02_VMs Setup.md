@@ -99,9 +99,13 @@ Instead of performing the operating system installation multiple times, cloning 
 
 ## Why Use Cloning?
 1.Saves time by eliminating the need to install RHEL on each node individually.
+
 2.Ensures all cluster nodes have identical operating system versions and package sets.
+
 3.Maintains consistent virtual hardware configurations (CPU, memory, disk, and network adapters).
+
 4.Reduces the risk of configuration differences between cluster nodes.
+
 5.Simplifies the deployment of multi-node cluster environments.
 
 ##In VMware Workstation Pro:
@@ -145,3 +149,5 @@ Click Finish.
 Wait until VMware completes the cloning process.
 
 ## Follow same process for **Node3** cloning.
+
+Now, we have set up three virtual machines for the HA cluster.
