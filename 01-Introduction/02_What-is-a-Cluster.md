@@ -26,7 +26,7 @@ A **cluster** is a group of two or more servers (called **nodes**) that work tog
 
 A cluster does not always mean Load Balancing.
 
-Red Hat Pacemaker Cluster is primarily designed for **High Availability (HA)** rather than Load Balancing.
+#### Red Hat Pacemaker Cluster is primarily designed for **High Availability (HA)** rather than Load Balancing.
 ---
 
 ## Why Do We Need a Cluster?
