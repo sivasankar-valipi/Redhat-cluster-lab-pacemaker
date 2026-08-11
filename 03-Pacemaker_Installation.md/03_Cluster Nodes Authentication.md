@@ -16,21 +16,40 @@ id hacluster
 
 ### The following diagram illustrates the authentication process.
 
-                Administrator
-                      │
-                      │
+```text
+                    Administrator
+                         │
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │     Node1 / Node2   │
+              │   pcs host auth     │
+              │                     │
+              │ HTTPS / TCP 2224    │
+              │       (pcsd)        │
+              └──────────┬──────────┘
+                         │
+                         │
+              Validate Cluster Password
+                         │
+                         ▼
+                 Mutual Trust
+                  Established
+                         │
+                         ▼
+              Node1 ◄──────────► Node2
+                   pcsd / HTTPS
+```
+
+### Command
+
+```bash
 pcs host auth node1 node2 -u hacluster
-                      │
-          HTTPS (TCP Port 2224)
-                      │
-       ┌──────────────┴──────────────┐
-       │                             │
-   pcsd (node1)                 pcsd (node2)
-       │                             │
-       └────── Validate hacluster Password
-                      │
-                      ▼
-             Mutual Trust Established
+```
+
+Enter the `hacluster` password when prompted.
+
+The authentication establishes mutual trust between the cluster nodes through `pcsd` over **TCP port 2224**.
              
 Once authentication is complete, pcs can securely execute cluster management commands on every node.
 
