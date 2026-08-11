@@ -138,15 +138,22 @@ A Storage Cluster provides centralized, highly available storage that can be acc
 
 ### Architecture
 
-          Applications
-             │
-    ┌────────┴────────┐
-    │                 │
- Server1           Server2
-    │                 │
-    └────────┬────────┘
-             │
-       Shared Storage
+       ## Architecture
+
+```text
+             Applications
+                  |
+                  |
+          +-------+-------+
+          |               |
+          |               |
+       Server1         Server2
+          |               |
+          +-------+-------+
+                  |
+                  |
+           Shared Storage
+```
 
 ### Characteristics
 
