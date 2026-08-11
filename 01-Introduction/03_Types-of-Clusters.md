@@ -139,15 +139,15 @@ A Storage Cluster provides centralized, highly available storage that can be acc
 
 ### Architecture
 
-            Applications
-                 │
-      ------------------------
-      │                      │
-   Server1               Server2
-      │                      │
-      └──────────┬───────────┘
-                 │
-          Shared Storage
+          Applications
+             │
+    ┌────────┴────────┐
+    │                 │
+ Server1           Server2
+    │                 │
+    └────────┬────────┘
+             │
+       Shared Storage
 
 ### Characteristics
 
@@ -254,4 +254,4 @@ A Kubernetes Cluster manages containerized applications by automatically deployi
 
 Each cluster type is designed to solve a specific problem. High Availability clusters ensure continuous service, Load Balancing clusters improve performance, HPC clusters increase computational power, Storage clusters provide resilient shared storage, Database clusters protect critical data, and Kubernetes clusters simplify container management.
 
-**In this repository, the primary focus is on **High Availability (HA) Cluster** using **Red Hat Enterprise Linux 9.0**, **Pacemaker**, and **Corosyn**c**.
+**In this repository, the primary focus is on **High Availability (HA) Cluster** using **Red Hat Enterprise Linux 9.8**, **Pacemaker**, and **Corosync**.
