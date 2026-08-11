@@ -24,20 +24,20 @@ Pacemaker acts as the cluster manager, while Corosync provides communication bet
              Heartbeat & Cluster Communication
                            │
     -----------------------------------------------------------------
-    │                         │                         │
-    │                         │                         │
-+------------------------+ +------------------------+ +------------------------+
-|        Node 1          | |        Node 2          | |        Node 3          |
-|------------------------| |------------------------| |------------------------|
-| node1.lab.local        | | node2.lab.local        | | node3.lab.local        |
-|                        | |                        | |                        |
-| RHEL                   | | RHEL                   | | RHEL                   |
-|                        | |                        | |                        |
-| Pacemaker              |<->| Pacemaker            |<->| Pacemaker              |
-| Corosync               | | Corosync               | | Corosync               |
-| PCS                    | | PCS                    | | PCS                    |
-|                        | |                        | |                        |
-| Application Resource   | | Standby Resource       | | Standby Resource       |
+    │                                   │                            │
+    │                                   │                            │
++------------------------+    +------------------------+    +------------------------+
+|        Node 1          |    |        Node 2          |    |        Node 3          |
+|------------------------|    |------------------------|    |------------------------|
+| node1.lab.local        |    | node2.lab.local        |    | node3.lab.local        |
+|                        |    |                        |    |                        |
+| RHEL                   |    | RHEL                   |    | RHEL                   |
+|                        |    |                        |    |                        |
+| Pacemaker              |<-> | Pacemaker              |<-> | Pacemaker              |
+| Corosync               |    | Corosync               |    | Corosync               |
+| PCS                    |    | PCS                    |    | PCS                    |
+|                        |    |                        |    |                        |
+| Application Resource   |    | Standby Resource       |    | Standby Resource       |
 +-----------+------------+ +-----------+------------+ +-----------+------------+
             │                          │                          │
             │                          │                          │
