@@ -29,7 +29,21 @@ If the High Availability repository is missing, enable it.
 
 #### subscription-manager repos --enable=rhel-9-for-x86_64-highavailability-rpms
 
-Note: If you are using the RHEL Developer Subscription or an evaluation subscription, ensure the system is registered with Red Hat before enabling repositories.
+**Check the current subscription status**
+
+Run on Node1, Node2, and Node3:
+
+subscription-manager status
+
+This system is not yet registered.
+
+#### Note: You need a Red Hat account with an active RHEL subscription. For a lab, this could be a Developer Subscription or another eligible subscription.
+
+subscription-manager register
+
+Username: **<your-redhat-username>**
+
+Password: **<your-redhat-password>**
 
 ## Install High Availability Packages
 
